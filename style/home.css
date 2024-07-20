@@ -73,3 +73,37 @@
     right: 0;
     z-index: 1;
 }
+
+@media screen and (max-width: 1170px){
+    #home{
+        display: block;
+        min-height: 100%;
+        padding-top: 0;
+    }
+
+    #banner,
+    #banner img{
+        margin-top: 20px;
+        width: 100%;
+        z-index: 2;
+    }
+
+    #home .shape{
+        margin-top: 645px;
+        height: 40%;
+        width: 105%;
+        z-index: 1;
+    }
+
+    #cta{
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 450px){
+    #phone_button button{
+        display: none;
+    }
+}
