@@ -13,3 +13,10 @@ footer{
     color: #1d1d1d;
     font-weight: 500;
 }
+
+@media screen and (max-width: 600px){
+    #footer_itens{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
