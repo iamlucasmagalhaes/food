@@ -1,5 +1,5 @@
 footer{
-    background-color: #ffe8b4;
+    background-color: var(--color-primary-2);
 }
 
 #footer_itens{
@@ -10,8 +10,7 @@ footer{
 }
 
 #copyright{
-    color: #1d1d1d;
-    font-weight: 500;
+    color: var(--color-neutral-1);   font-weight: 500;
 }
 
 @media screen and (max-width: 600px){

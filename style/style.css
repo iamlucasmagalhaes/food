@@ -6,6 +6,18 @@
 @import url('testimonials.css');
 @import url('footer.css');
 
+:root{
+    --color-primary-1: #fff9ea;
+    --color-primary-2: #ffe8b4;
+    --color-primary-3: #ffe100;
+    --color-primary-4: #ffcb45;
+    --color-primary-5: #f8d477;
+    --color-primary-6: #e9a209;
+
+    --color-neutral-0: #fff;
+    --color-neutral-1: #1d1d1d;
+}
+
 *{
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -14,7 +26,7 @@
 }
 
 body{
-    background-color: #fff9ea;
+    background-color: var(--color-primary-1);
 }
 
 section{
@@ -26,7 +38,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffcb45;
+    background-color: var(--color-primary-4);
     border-radius: 12px;
     padding: 10px 14px;
     font-weight: 600;
@@ -36,7 +48,7 @@ section{
 }
 
 .btn-default:hover{
-    background-color: #f8d477;
+    background-color: var(--color-primary-5);
 }
 
 .social-media-buttons{
@@ -50,12 +62,11 @@ section{
     justify-content: center;
     width: 45px;
     height: 45px;
-    background-color: #fff;
+    background-color: var(--color-neutral-0);
     font-size: 1.25rem;
     border-radius: 10px;
     text-decoration: none;
-    color: #1d1d1d;
-    box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.1);
+    color: var(--color-neutral-1);    box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow .3s ease;
 }
 
@@ -64,7 +75,7 @@ section{
 }
 
 .section-title{
-    color: #e9a209;
+    color: var(--color-primary-6);
     font-size: 1.563rem;
 }
 
