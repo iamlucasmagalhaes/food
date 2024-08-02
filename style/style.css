@@ -5,6 +5,7 @@
 @import url('home.css');
 @import url('testimonials.css');
 @import url('footer.css');
+@import url('cart.css');
 
 :root{
     --color-primary-1: #fff9ea;
