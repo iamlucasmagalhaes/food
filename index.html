@@ -298,9 +298,31 @@
         </section>
          <!--Fim das avaliações-->
 
+         <!--Início Carinho-->
          <aside>
             <i class="fa-solid fa-basket-shopping"></i>
          </aside>
+         <!--Fim Carinho-->
+
+         <!--Início Modal Carinho-->
+         <div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden">
+            <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+                <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
+                
+                <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+
+                <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+                <p class="font-bold mt-4">Endereço de entrega</p>
+                <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-1 rounded my-1">
+                <p class="text-red-500 flex" id="address-warning"></p>
+            
+                <div class="flex items-center justify-between mt-5 w-full">
+                    <button id="close-modal-btn">Fechar</button>
+                    <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
+                </div>
+            </div>
+         </div>
+         <!--FIm Modal Carinho-->
 
     </main>
     <!--Fim do conteúdo principal da página-->

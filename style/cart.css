@@ -3,6 +3,7 @@ aside{
     height: 80px;
     border-radius: 50%;
     background-color: var(--color-primary-6);
+    box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,4 +16,8 @@ aside{
 aside > i {
     font-size: 30px;
     color: white;
+}
+
+aside:hover{
+    cursor: pointer;
 }
