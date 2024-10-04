@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Food</title>
     <link rel="stylesheet" href="style/style.css">
-    <script src="script.js" defer></script>
+    <script src="script/script.js" defer></script>
+    <script src="script/cart.js" defer></script>
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
@@ -138,7 +139,7 @@
 
                     <div class="dish-price">
                         <h4>R$20,00</h4>
-                        <button class="btn-default">
+                        <button id="add-to-cart-btn" class="btn-default" data-name="Lorem ipsum" data-price="20.00">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </button>
                     </div>
@@ -168,7 +169,7 @@
 
                     <div class="dish-price">
                         <h4>R$20,00</h4>
-                        <button class="btn-default">
+                        <button id="add-to-cart-btn" class="btn-default" data-name="Lorem ipsum" data-price="20.00">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </button>
                     </div>
@@ -198,7 +199,7 @@
 
                     <div class="dish-price">
                         <h4>R$20,00</h4>
-                        <button class="btn-default">
+                        <button id="add-to-cart-btn" class="btn-default" data-name="Lorem ipsum" data-price="20.00">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </button>
                     </div>
@@ -228,7 +229,7 @@
 
                     <div class="dish-price">
                         <h4>R$20,00</h4>
-                        <button class="btn-default">
+                        <button id="add-to-cart-btn" class="btn-default" data-name="Lorem ipsum" data-price="20.00">
                             <i class="fa-solid fa-basket-shopping"></i>
                         </button>
                     </div>
@@ -299,13 +300,13 @@
          <!--Fim das avaliações-->
 
          <!--Início Carinho-->
-         <aside>
+         <aside id="cart">
             <i class="fa-solid fa-basket-shopping"></i>
          </aside>
          <!--Fim Carinho-->
 
          <!--Início Modal Carinho-->
-         <div class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden">
+         <div id="cart-modal" class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden">
             <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
                 <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
                 
