@@ -9,6 +9,8 @@ const closeModalBtn = document.getElementById('close-modal-btn')
 const addressInput = document.getElementById('address')
 const addressWarning = document.getElementById('address-warning')
 
+let cartList = []
+
 //abrir o modal do carrinho
 cart.addEventListener("click", () =>{
     cartModal.style.display = "flex"
@@ -30,6 +32,26 @@ dishes.addEventListener('click', (event) => {
     
     if(parentButton){
         const name = parentButton.getAttribute("data-name")
-        const price = parentButton.getAttribute("data-price")      
+        const price = parseFloat(parentButton.getAttribute("data-price"))      
+    
+        addToCart(name, price)
     }
 })
+
+//função para adicionar itens no carrinho
+function addToCart(name, price){
+    //verifica se o item já existe na lista
+    const existingItem = cartList.find(item => item.name === name)
+
+    if(existingItem){
+        //se o item já existe, aumenta a quantidade + 1
+        existingItem.quantity += 1
+        return
+    }
+
+    cartList.push({
+        name,
+        price,
+        quantity: 1
+    })
+}
