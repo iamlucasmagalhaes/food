@@ -13,6 +13,7 @@ let cartList = []
 
 //abrir o modal do carrinho
 cart.addEventListener("click", () =>{
+    updateCartModal()
     cartModal.style.display = "flex"
 })
 
@@ -46,12 +47,39 @@ function addToCart(name, price){
     if(existingItem){
         //se o item já existe, aumenta a quantidade + 1
         existingItem.quantity += 1
-        return
+    } else {
+        cartList.push({
+            name,
+            price,
+            quantity: 1
+        })
     }
 
-    cartList.push({
-        name,
-        price,
-        quantity: 1
+    updateCartModal()
+}
+
+//atualiza o carrinho da home
+function updateCartModal(){
+    cartItemsContainer.innerHTML = ""
+    let total = 0
+
+    cartList.forEach(item => {
+        //cria um elemento do item escolhido no meu modal
+       const cartItemElement = document.createElement("div")
+
+       cartItemElement.innerHTML = `
+       <div>
+            <div>
+                <p>${item.name}</p>
+                <p>${item.quantity}</p>
+                <p>R$ ${item.price}</p>
+            </div>
+
+            <div>
+                <button>Remover</button>
+            </div>
+       </div>`
+
+       cartItemsContainer.appendChild(cartItemElement)
     })
 }
