@@ -114,3 +114,23 @@ function removeItemCart(name){
         updateCartModal()
     }
 }
+
+//verificaa se o campo input do endereço possue algum valor
+addressInput.addEventListener("input", (event) => {
+    let inputValue = event.target.value
+
+    if(inputValue !== ""){
+        addressInput.classList.remove("border-red-500")
+        addressWarning.cartList.add("hidden")
+    }
+})
+
+//adiciona efeitos para caso o endereço seja colocado corretamente
+checkoutBtn.addEventListener('click', () => {
+    if(cartList.length === 0) return
+    if(addressInput.value === ""){
+        addressWarning.classList.remove("hidden")
+        addressInput.classList.add("border-red-500")
+        return
+    }
+})
