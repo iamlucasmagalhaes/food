@@ -76,7 +76,7 @@ function updateCartModal(){
                 <p class = "font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
             </div>
 
-            <button>Remover</button>
+            <button class = "remove-cart-from-btn" data-name = "${item.name}">Remover</button>
        </div>`
 
        total += item.price * item.quantity
@@ -87,4 +87,30 @@ function updateCartModal(){
         style: "currency",
         currency: "BRL"
     })
+}
+
+//função para remover item do carrinho
+cartItemsContainer.addEventListener('click', (event) => {
+    if(event.target.classList.contains('remove-cart-from-btn')){
+        const name = event.target.getAttribute("data-name")
+        
+        removeItemCart(name)
+    }
+})
+
+function removeItemCart(name){
+    const index = cartList.findIndex(item => item.name === name)
+    
+    if(index !== -1){
+        const item = cartList[index]
+
+        if(item.quantity > 1){
+            item.quantity -= 1
+            updateCartModal()
+            return
+        }
+
+        cartList.splice(index, 1)
+        updateCartModal()
+    }
 }
