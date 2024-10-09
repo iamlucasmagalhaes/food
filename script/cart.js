@@ -146,4 +146,7 @@ checkoutBtn.addEventListener('click', () => {
 
     //redireciona para a API do whastapp
     window.open(`https://wa.me/${phone}?text=${message} Endereço:${addressInput.value}`, "_blank")
+    //limpa o carrinho
+    cartList = []
+    updateCartModal()
 })

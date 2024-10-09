@@ -1,6 +1,9 @@
 const mobileBtn = document.getElementById('mobile_btn')
 const burgerMenu = document.getElementById('burguer-menu')
 const cross = document.getElementById('cross')
+const reviews = document.getElementById('reviews')
+const facebook = document.getElementById('facebook')
+
 mobileBtn.addEventListener('click', () => {
     const mobileMenu = document.getElementById('mobile_menu')
     if(mobileMenu.classList.contains('active')){
@@ -54,6 +57,34 @@ document.addEventListener('scroll', () => {
             navItem.classList.remove('active') //remove a classe active dos meu itens da navbar
         }
     })
+})
+
+reviews.addEventListener('click', () => {
+    Toastify({
+        text: "Segura a emoção, porque o dev não está de plantão",
+        duration: 4000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#e9a209",
+        },
+      }).showToast();
+})
+
+facebook.addEventListener('click', () => {
+    Toastify({
+        text: "Se você usa facebook certamente tem mais de 30 anos",
+        duration: 4000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#e9a209",
+        },
+      }).showToast();
 })
 
 ScrollReveal().reveal('#cta', {
