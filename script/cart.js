@@ -133,4 +133,17 @@ checkoutBtn.addEventListener('click', () => {
         addressInput.classList.add("border-red-500")
         return
     }
+
+    //envia pedido para API whatsapp
+    const cartItems = cartList.map((item) => {
+        return(
+            `${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
+        )
+    }).join("")
+
+    const message = encodeURIComponent(cartItems)
+    const phone = "38991465507"
+
+    //redireciona para a API do whastapp
+    window.open(`https://wa.me/${phone}?text=${message} Endereço:${addressInput.value}`, "_blank")
 })
