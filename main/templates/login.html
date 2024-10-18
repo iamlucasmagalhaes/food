@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Food</title>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <a href="/"><i class="fa-solid fa-burger" id="nav_logo"> FOOD</i></a>
+
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <a href="#menu" style="text-decoration: none;">
+                <button class="btn-default">
+                    Peça aqui
+                </button>
+            </a>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars" id="burguer-menu"></i>
+                <i class="fa-solid fa-xmark hidden" id="cross"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <button class="btn-default">
+                Peça aqui
+            </button>
+        </div>
+    </header>
+
+    <main class="flex justify-center items-center">
+        <div class="login-section">
+            <i class="fa-solid fa-burger" id="nav_logo"></i>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn-default">Entrar</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer class="footer-login">
+        <img src="{% static 'imgs/wave.svg' %}" alt="">
+
+        <div id="footer_itens">
+            <span id="copyright">
+                &copy 2024 Lucas Magalhães Rodrigues
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="#">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

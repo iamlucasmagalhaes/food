@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Food</title>
+    {% load static %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="{% static 'js/cart.js' %}" defer></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+</head>
+<body>
+    <!--Começo do cabeçalho da página-->
+    <header>
+        <nav id="navbar">
+            <a href="/"><i class="fa-solid fa-burger" id="nav_logo"> FOOD</i></a>
+
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <a href="/admin" style="text-decoration: none;">
+                <button class="btn-default">
+                    Tela de Admin
+                </button>
+            </a>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars" id="burguer-menu"></i>
+                <i class="fa-solid fa-xmark hidden" id="cross"></i>
+            </button>
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#testimonials">Avaliações</a>
+                </li>
+            </ul>
+
+            <button class="btn-default">
+                Peça aqui
+            </button>
+        </div>
+    </header>
+    <!--Fim do cabeçalho da página-->
+
+    <!--Começo do conteúdo principal da página-->
+    <main id="content">
+        <!--Começo da home da página-->
+        <section id="home">
+            <div class="shape"></div>
+            <!--Texto principal da página-->
+            <div id="cta">
+                <h1 class="title">
+                    O sabor que vai até 
+                    <span>você</span>
+                </h1>
+
+                <p class="description">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sit repellendus accusamus rerum dolor dicta reiciendis. Porro assumenda magnam tempore ipsum quibusdam, laudantium omnis, saepe animi fugit laboriosam dolore sed!
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="#" class="btn-default">Ver cardápio</a>
+
+                    <a href="tel:+5555555555" id="phone_button">
+                        <button class="btn-default">
+                            <i class="fa-solid fa-phone"></i>
+                        </button>
+                        (51) 92342-3243
+                    </a>
+                </div>
+
+                <div class="social-media-buttons">
+                    <a href="#">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/imlucasmagalhaes/" target="_blank>
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" id="facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="banner">
+                <img src="{% static 'imgs/hero.png' %}" alt="">
+            </div>
+        </section>
+        <!--Fim da home da página-->
+
+        <!--Começo da menu da página-->
+        <section id="menu">
+            <h2 class="section-title">Cardápio</h2>
+            <h3 class="section-sbtitle">Nossos pratos especiais</h3>
+
+            <!--Pratos disponiveis-->
+
+            <div id="dishes">
+            {% for prato in pratos%}
+                <!--Prato-->
+                <div class="dish">
+                    <div class="dish-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <img src="{{ prato.linkDaImagem }}" class="dish-image" alt="">
+                    <h3 class="dish-title">
+                        {{ prato.nome }}
+                    </h3>
+                    <span class="dish-description">
+                        {{ prato.descricao }}
+                    </span>
+
+                    <div class="dish-rate">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(500+)</span>
+                    </div>
+
+                    <div class="dish-price">
+                        <h4>R${{ prato.preco }}</h4>
+                        <button id="add-to-cart-btn" class="btn-default" data-name="{{ prato.nome }}" data-price="{{ prato.preco }}">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!--Fim do menu da página-->
+
+        <!--Começo das avaliações-->
+        <section id="testimonials">
+            <img src="{% static 'imgs/chef.png' %}" id="testimonial_chef" alt="">
+
+            <div id="testimonials_content">
+                <h2 class="section-title">
+                    Depoimentos
+                </h2>
+                <h3 class="section-subtitle">
+                    O que os clientes falam sobre nós
+                </h3>
+
+                <!--Início das avaliações dos clientes-->
+                <div id="feedbacks">
+                    <div class="feedback">
+                        <img src="{% static 'imgs/avatar.png' %}" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                                Biro Biro
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga placeat repellat porro ex optio, dignissimos officia doloremque sapiente vitae consequuntur fugiat voluptatem, asperiores tenetur quasi! Dolores ex ipsam vero ea.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feedback">
+                        <img src="{% static 'imgs/avatar.png' %}" class="feedback-avatar" alt="">
+
+                        <div class="feedback-content">
+                            <p>
+                                Biro Biro
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga placeat repellat porro ex optio, dignissimos officia doloremque sapiente vitae consequuntur fugiat voluptatem, asperiores tenetur quasi! Dolores ex ipsam vero ea.
+                            </p>
+                        </div>
+                    </div>
+
+                    <button id="reviews" class="btn-default">
+                        Ver mais avaliações
+                    </button>
+                </div>
+                <!--Fim das avaliações dos clientes-->
+            </div>
+        </section>
+         <!--Fim das avaliações-->
+
+         <!--Início Carinho-->
+         <aside id="cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+         </aside>
+         <!--Fim Carinho-->
+
+         <!--Início Modal Carinho-->
+         <div id="cart-modal" class="bg-black/50 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden">
+            <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
+                <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
+                
+                <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
+
+                <p class="font-bold">Total: <span id="cart-total">0.00</span></p>
+                <p class="font-bold mt-4">Endereço de entrega</p>
+                <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-1 rounded my-1">
+                <p class="text-red-500 hidden" id="address-warning">Digite seu endereço completo</p>
+            
+                <div class="flex items-center justify-between mt-5 w-full">
+                    <button id="close-modal-btn">Fechar</button>
+                    <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
+                </div>
+            </div>
+         </div>
+         <!--FIm Modal Carinho-->
+
+    </main>
+    <!--Fim do conteúdo principal da página-->
+
+    <footer>
+        <img src="{% static 'imgs/wave.svg' %}" alt="">
+
+        <div id="footer_itens">
+            <span id="copyright">
+                &copy 2024 Lucas Magalhães Rodrigues
+            </span>
+
+            <div class="social-media-buttons">
+                <a href="#">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="https://www.instagram.com/imlucasmagalhaes/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
